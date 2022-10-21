@@ -17,3 +17,7 @@
 - Fix Documents controller after adding document command call.
 - Added short_description to documentation table
 - Implement short_description add documentation 
+
+# 0.1.1
+- Added Migrations for Documents Comments and Rating
+- Added models for Documents comments and rating
