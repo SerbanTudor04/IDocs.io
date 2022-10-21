@@ -24,7 +24,8 @@ class HomeController extends Controller
                         'query' => $query,
                         'fields' => [
                             'name',
-                            'content'
+                            'content',
+                            'short_description'
                         ]
                     ]
                 ]

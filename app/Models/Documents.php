@@ -22,6 +22,7 @@ class Documents extends Model
         'content',
         'created_by',
         'updated_by',
+        'short_description',
 
 
     ];

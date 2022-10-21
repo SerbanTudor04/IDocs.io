@@ -25,11 +25,12 @@ class DocumentsController extends Controller
                     'name'=>$request->name,
                     'content'=>$request->content,
                     'created_by'=>$user_id,
-                    'updated_by'=>$user_id
+                    'updated_by'=>$user_id,
+                    'short_description'=>$request->short_description,
                 ]
         );
 
-        Artisan::command('import:documents',function($user){
+        Artisan::command('index:documents',function($user){
             echo "Documents indexed";
         })->purpose('Indexing documents in database');
         
@@ -45,7 +46,9 @@ class DocumentsController extends Controller
 
         $doc=DB::table('documents')->where('id',$id)->first();
 
-        return view('documents.view',['doc'=>$doc]);
+        $content="<p>Buna ce mai <strong>zici</strong>?</p>";
+
+        return view('documents.view',['doc'=>$doc,'content'=>$content]);
 
     }
 }

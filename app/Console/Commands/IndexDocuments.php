@@ -29,7 +29,7 @@ class IndexDocuments extends Command
      */
     public function handle()
     {
-        $docs = Documents::all(['id','name','content']);
+        $docs = Documents::all(['id','name','content','short_description']);
         echo 'Documents obtained.';
 
 
@@ -40,6 +40,7 @@ class IndexDocuments extends Command
                 'body'=>[
                     'name'=>$doc->name,
                     'content'=>$doc->content,
+                    'short_description'=>$doc->short_description
                 ],
                 'index'=>"i_documents",
                 'type'=>'keyword',
