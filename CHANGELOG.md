@@ -35,3 +35,11 @@
 
 # 0.2.1
 - Change [.env.example](.env.example)
+
+# 0.3.0
+- Add support for about page in home controller
+- Add support for obtaing appliation links in home controller
+- Add table apps_links for storing application routes
+- Add seeds for apps_links
+- Beautify home page template
+- Add mega menu dropdown near logo of application 

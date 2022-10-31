@@ -14,7 +14,11 @@ class HomeController extends Controller
     }
     public function results(Request $request){
         $query = $request->input('q');
-        
+        if(!$query){
+            $query = '';
+            return view('home.results',['q'=> $query,'response'=>[]]);
+
+        }
 
         $q=Elasticsearch::search([
             'index' => 'i_documents',
@@ -36,6 +40,10 @@ class HomeController extends Controller
 
 
         return view('home.results',['q'=> $query,'response'=>$response]);
+
+    }
+    public function about(){
+        return view('home.about');
 
     }
 }

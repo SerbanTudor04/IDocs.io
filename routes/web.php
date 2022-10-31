@@ -10,6 +10,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/results', 'HomeController@results')->name('home.results');
+    Route::get('/about', 'HomeController@about')->name('home.about');
 
     Route::get('/doc/add', 'DocumentsController@add_show')->name('documents.add_show');
     Route::post('/doc/add', 'DocumentsController@add_perform')->name('documents.add_perform');

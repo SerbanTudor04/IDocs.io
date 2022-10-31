@@ -32,16 +32,14 @@
     <!-- Custom styles for this template -->
     <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
 </head>
-<body>
-    
-    @include('layouts.partials.navbar')
-    @include('layouts.partials.messages')
+  <body class="d-flex flex-column h-100">
+  
+  @include('layouts.partials.navbar')
+  @include('layouts.partials.messages')
 
-
-    <main class="container">
-        @yield('content')
+    <main class=" app__content container h-100">
+              @yield('content')
     </main>
-
     <script src="{!! url('assets/libs/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
     <script src="{!! url('assets/libs/fontawesome/js/all.min.js') !!}"></script>
   </body>
