@@ -32,3 +32,6 @@
 - Fix message template, missing close button and added animation fade out
 - Added new columns to documents_comments table
 - Added application installing script
+
+# 0.2.1
+- Change [.env.example](.env.example)
