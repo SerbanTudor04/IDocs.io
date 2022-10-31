@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddComment2Document;
 use App\Http\Requests\AddDocumentRequest;
 use App\Models\Documents;
+use App\Models\DocumentsComments;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class DocumentsController extends Controller
 {
@@ -17,7 +20,6 @@ class DocumentsController extends Controller
         
         $user_id=auth()->user()->id;
 
-        
 
         $document=Documents::create(
                 [
@@ -44,10 +46,28 @@ class DocumentsController extends Controller
     public function viewDoc_show($id){
 
         $doc=DB::table('documents')->where('id',$id)->first();
+        $comments=DB::table('documents_comments')->where('document_id',$id)->get();
 
-        $content="<p>Buna ce mai <strong>zici</strong>?</p>";
 
-        return view('documents.view',['doc'=>$doc,'content'=>$content]);
+        return view('documents.view',['doc'=>$doc,'comments'=>$comments]);
+
+    }
+
+    public function add_comment(AddComment2Document $request){
+        $user_id=auth()->user()->id;
+        DocumentsComments::create(
+                [      
+                    'id' =>Str::uuid()->toString(),
+                    'document_id'=>$request->document_id,
+                    'content'=>$request->comment,
+                    'created_by'=>$user_id,
+                    'updated_by'=>$user_id,
+                ]
+            );
+
+
+        return redirect()->back()->withInput()->with('success', 'Comment added successfully!');
+
 
     }
 }

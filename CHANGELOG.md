@@ -21,3 +21,14 @@
 # 0.1.1
 - Added Migrations for Documents Comments and Rating
 - Added models for Documents comments and rating
+
+# 0.1.2
+- Added alerts support in general template of the application
+
+# 0.2.0 
+- Added comments endpoint in controller
+- Added template for adding a comment on document 
+- Added comments showing in document view page
+- Fix message template, missing close button and added animation fade out
+- Added new columns to documents_comments table
+- Added application installing script

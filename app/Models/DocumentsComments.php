@@ -15,13 +15,16 @@ class DocumentsComments extends Model
     protected $fillable = [
         'content',
         'created_by',
-        'document_id',
         'created_at',
+        'updated_by',
+        'updated_at',
+        'document_id',
+        'id',
+
     ];
 
     protected $hidden = [
-        'id',
-
+    
     ];
 
 

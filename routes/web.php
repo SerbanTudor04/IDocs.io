@@ -37,6 +37,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
         Route::get('/doc/view/{id}', 'DocumentsController@viewDoc_show')->name('documents.viewDoc_show');
+        Route::post('/doc/add_comment', 'DocumentsController@add_comment')->name('documents.add_comment');
+        Route::get('/doc/add_comment', 'DocumentsController@add_comment')->name('documents.add_comment');
 
     });
 });
