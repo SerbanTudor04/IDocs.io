@@ -43,3 +43,7 @@
 - Add seeds for apps_links
 - Beautify home page template
 - Add mega menu dropdown near logo of application 
+
+# 0.3.1
+- Restructure and add tables in database
+- Fix navbar menus for authenticated users and guess

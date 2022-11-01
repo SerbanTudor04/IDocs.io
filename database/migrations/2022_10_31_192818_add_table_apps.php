@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('apps_links', function (Blueprint $table) {
-            $table->integer('id')->primaryKey();
-            $table->integer('app_id')->foreign('app_id')->references('id')->on('apps')->onDelete('cascade');
+        Schema::create('apps', function (Blueprint $table) {
+            $table->id();
             $table->string('name');
-            $table->string('url')->nullable();
-            $table->string('icon')->nullable();
         });
+
+
     }
 
     /**
