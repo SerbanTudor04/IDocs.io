@@ -51,4 +51,4 @@
 # 0.3.2 
 - Fix total results in results page
 - Fix missing add documentation in results page
-- Fix indexing documentation affter adding new documentation
+- Fix indexing documentation after adding new documentation
