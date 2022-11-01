@@ -4,7 +4,7 @@
     <div class="bg-light p-5 rounded">
         @auth
         @include('home.partials.search')
-        <small>Total results: </small>
+        <small>Total results: {{count($response)}} </small>
 
         <hr>
      

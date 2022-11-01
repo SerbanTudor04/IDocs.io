@@ -47,3 +47,8 @@
 # 0.3.1
 - Restructure and add tables in database
 - Fix navbar menus for authenticated users and guess
+
+# 0.3.2 
+- Fix total results in results page
+- Fix missing add documentation in results page
+- Fix indexing documentation affter adding new documentation

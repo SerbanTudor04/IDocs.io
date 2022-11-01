@@ -31,11 +31,8 @@ class DocumentsController extends Controller
                 ]
         );
 
-        Artisan::command('index:documents',function($user){
-            echo "Documents indexed";
-        })->purpose('Indexing documents in database');
-        
 
+        Artisan::call('index:documents');
 
         $doc_id=$document->id;
 
