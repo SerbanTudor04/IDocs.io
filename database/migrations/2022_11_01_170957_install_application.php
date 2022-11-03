@@ -22,7 +22,7 @@ return new class extends Migration
         });
 
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->primary()->index();
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('username')->unique();
             $table->string('email')->unique();
@@ -69,12 +69,15 @@ return new class extends Migration
         Schema::create('apps_documents_comments',function(Blueprint $table){
             $table->uuid('id')->nullable();
             $table->longText('content')->nullable()->default('text');
-            $table->integer('created_by')->nullable();
-            $table->integer('updated_by')->nullable();
+            $table->uuid('created_by')->nullable();
+            $table->uuid('updated_by')->nullable();
             $table->uuid('document_id');
             $table->foreign('document_id')->references('id')->on('apps_documents')->onDelete('cascade');
             $table->uuid('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->dateTime('updated_at')->nullable()->default(Carbon::now()->toDateTimeString());
+            $table->dateTime('created_at')->nullable()->default(Carbon::now()->toDateTimeString());
+
         });
 
         Schema::create('apps_documents_attachements',function(Blueprint $table){

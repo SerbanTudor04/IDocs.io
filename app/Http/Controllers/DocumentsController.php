@@ -42,8 +42,8 @@ class DocumentsController extends Controller
 
     public function viewDoc_show($id){
 
-        $doc=DB::table('documents')->where('id',$id)->first();
-        $comments=DB::table('documents_comments')->where('document_id',$id)->get();
+        $doc=DB::table('apps_documents')->where('id',$id)->first();
+        $comments=DB::table('apps_documents_comments')->where('document_id',$id)->get();
 
 
         return view('documents.view',['doc'=>$doc,'comments'=>$comments]);
@@ -59,6 +59,7 @@ class DocumentsController extends Controller
                     'content'=>$request->comment,
                     'created_by'=>$user_id,
                     'updated_by'=>$user_id,
+                    'users_id'=>$user_id,
                 ]
             );
 

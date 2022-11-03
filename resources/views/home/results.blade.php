@@ -7,7 +7,12 @@
         <small>Total results: {{count($response)}} </small>
 
         <hr>
-     
+            @if(count($response)==0)
+                <small>No results found!</small>
+
+
+            @endif
+
             @foreach ($response as $r )
                 {{-- <li>{{$r['_source']['name']}}</li> --}}
                 <a class="results__link" href="/doc/view/{{$r['_id']}}">
@@ -21,7 +26,7 @@
                         </div>
                       </div>
                 </a>
-
+            
             @endforeach
       
         @endauth

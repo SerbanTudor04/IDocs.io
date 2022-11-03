@@ -19,6 +19,7 @@ class DocumentsComments extends Model
         'updated_by',
         'updated_at',
         'document_id',
+        'users_id',
         'id',
 
     ];

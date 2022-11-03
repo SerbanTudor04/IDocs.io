@@ -59,3 +59,10 @@
 - Remove old migrations files
 - Refactors models
 - Add aditions info after application installtion process
+
+# 0.3.4
+- Fix Missing column in Documents comments
+- Change artisan to idocs 
+- Fix missing columns in migration script and fix column wrong missing types
+- Implement uuid in users table
+- Fix typo in database seed apps links

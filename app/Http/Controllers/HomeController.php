@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Elasticsearch;
-
+use Exception;
 class HomeController extends Controller
 {
     public function index() 
@@ -19,24 +19,27 @@ class HomeController extends Controller
             return view('home.results',['q'=> $query,'response'=>[]]);
 
         }
-
-        $q=Elasticsearch::search([
-            'index' => 'i_documents',
-            'body'  => [
-                'query' => [
-                    'multi_match' => [
-                        'query' => $query,
-                        'fields' => [
-                            'name',
-                            'content',
-                            'short_description'
+        try{
+            $q=Elasticsearch::search([
+                'index' => 'i_documents',
+                'body'  => [
+                    'query' => [
+                        'multi_match' => [
+                            'query' => $query,
+                            'fields' => [
+                                'name',
+                                'content',
+                                'short_description'
+                            ]
                         ]
                     ]
                 ]
-            ]
         ]);
+            $response=$q['hits']['hits'];
+        } catch(Exception $e) {
+            $response=[];
+        }
 
-        $response=$q['hits']['hits'];
 
 
         return view('home.results',['q'=> $query,'response'=>$response]);

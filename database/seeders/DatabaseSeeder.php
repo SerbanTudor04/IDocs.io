@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'app_id' => 1,
             'id'=>1,
             'name' => 'Add Documentation',
-            'url' => 'documents.add_comment',
+            'url' => 'documents.add_show',
             'icon' => 'fa fa-plus'
         ]);
         \App\Models\AppLinks::create(
