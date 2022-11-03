@@ -28,5 +28,5 @@ class DocumentsComments extends Model
     ];
 
 
-    protected $table = 'documents_comments';
+    protected $table = 'apps_documents_comments';
 }

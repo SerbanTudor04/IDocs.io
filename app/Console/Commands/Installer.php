@@ -165,5 +165,8 @@ class Installer extends Command
     private function setUpKey(){
         $this->call('key:generate');
         $this->info("\nApplication installation completed!");
+        $this->info("\nLogin to http://localhost:8000/admin using:!");
+        $this->info("\n\t Username: admin!");
+        $this->info("\n\t Password: admin!");
     }
 }

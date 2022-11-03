@@ -37,5 +37,5 @@ class DocumentsRatingsAggregated extends Model
      *
      * @var string
      */
-    protected $table = 'documents_ratings_aggregated';
+    protected $table = 'apps_documents_ratings_aggregated';
 }

@@ -44,5 +44,5 @@ class Documents extends Model
      *
      * @var string
      */
-    protected $table = 'documents';
+    protected $table = 'apps_documents';
 }

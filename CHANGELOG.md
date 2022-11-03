@@ -52,3 +52,10 @@
 - Fix total results in results page
 - Fix missing add documentation in results page
 - Fix indexing documentation after adding new documentation
+
+# 0.3.3
+- Refactor database migration in one file
+- Refactor database tables and add foreign keys
+- Remove old migrations files
+- Refactors models
+- Add aditions info after application installtion process

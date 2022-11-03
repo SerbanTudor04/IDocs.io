@@ -15,6 +15,12 @@
               </div>
             </div>
           </div>
+
+        <div class="card ">
+          <div class="card-body">
+            <h1 class="card-title">Top rated docs</h1>
+          </div>
+        </div>
         @endauth
 
         @guest

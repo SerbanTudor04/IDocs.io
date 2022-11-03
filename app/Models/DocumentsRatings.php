@@ -33,5 +33,5 @@ class DocumentsRatings extends Model
      *
      * @var string
      */
-    protected $table = 'documents_ratings';
+    protected $table = 'apps_documents_ratings';
 }

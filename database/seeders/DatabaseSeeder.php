@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use Illuminate\Support\Str;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,14 +14,24 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
+        \App\Models\Apps::create([
+            'id' => 1,
+            'name' => 'iDocs.io',
+        
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'admin',
-        //     'username' => 'admin',
-        //     'email' => 'admin@example.com',
-        //     'password' => bcrypt('admin'),
-        // ]);
+
+
+        \App\Models\User::create([
+            'name' => 'admin',
+            'username' => 'admin',
+            'email' => 'admin@example.com',
+            'password' => 'admin',
+            'app_id' => 1,
+            'id' => Str::uuid()->toString(),
+            'is_staff' =>true,
+        ]);
 
         \App\Models\AppLinks::create([
             'app_id' => 1,

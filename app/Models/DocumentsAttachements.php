@@ -36,5 +36,5 @@ class DocumentsAttachements extends Model
      *
      * @var string
      */
-    protected $table = 'documents_attachment';
+    protected $table = 'apps_documents_attachment';
 }
