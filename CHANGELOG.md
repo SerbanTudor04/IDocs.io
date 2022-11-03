@@ -66,3 +66,6 @@
 - Fix missing columns in migration script and fix column wrong missing types
 - Implement uuid in users table
 - Fix typo in database seed apps links
+
+# 0.3.5
+- Fix page layout

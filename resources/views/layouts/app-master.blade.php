@@ -26,6 +26,12 @@
           font-size: 3.5rem;
         }
       }
+      .position__middle{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%,0%);
+      }
     </style>
 
     
@@ -37,8 +43,11 @@
   @include('layouts.partials.navbar')
   @include('layouts.partials.messages')
 
-    <main class=" app__content container h-100">
-              @yield('content')
+    <main class="app__content position__middle ">
+      <div class="container">
+
+          @yield('content')
+      </div>
     </main>
     <script src="{!! url('assets/libs/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
     <script src="{!! url('assets/libs/fontawesome/js/all.min.js') !!}"></script>
