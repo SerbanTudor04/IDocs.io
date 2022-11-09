@@ -69,3 +69,6 @@
 
 # 0.3.5
 - Fix page layout
+
+# 0.3.6
+- Add dynamic title loading, by application title
