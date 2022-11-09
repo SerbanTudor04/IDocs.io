@@ -72,3 +72,6 @@
 
 # 0.3.6
 - Add dynamic title loading, by application title
+
+# 0.4.0
+- Added rating functionality to a documentation

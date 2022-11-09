@@ -25,7 +25,7 @@ class AddRatings extends FormRequest
     {
         return [
             'document_id' => 'required',
-            'score' => 'required'
+            'rating' => 'required'
         ];
     }
 }

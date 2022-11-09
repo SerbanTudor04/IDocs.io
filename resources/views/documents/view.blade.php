@@ -2,6 +2,7 @@
 @section('content')
 <div class="bg-light p-5 rounded">
     @auth
+
         @inject('provider', 'App\Http\Controllers\UtilsController')
             <div class="document__view">
                 <h1 class="text-primary">
@@ -38,6 +39,41 @@
             </div>
         </div>
 
+        {{-- Ratings --}}
+
+        @if(!$provider::checkIfUserHasDoneRating($doc->id))
+            <div>
+                <small class="text-secondary">
+                    You don't rated this document yet.
+                </small><br>
+                <form action="{{route('ratings.add2doc')}}" method="POST">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="document_id" value="{{ $doc->id }}" />
+
+                    <div class="form-group  mb-3">
+                        <input id="rating_range" type="range" class="form-range" min="0" step="1" max="5" name="rating" value="{{ old('rating') }}" onchange="updateTextInput(this.value);" placeholder="Rating" required="required">                        
+        
+                    </div>
+                    <div class="  mb-3">
+                        <div class="col">
+                            <label for="current_rating_range" class="form-label">Current rating:</label>
+                        </div>
+                        <div class="col">
+                            <input id="current_rating_range" type="text" class="form-control " name="current_rating" value="{{ old('rating') }}" readonly disabled>                        
+                        </div>
+                       
+                    </div>
+                    <button class="btn btn-primary w-100">
+                        Rate this document  <i class="fa-solid fa-star"></i>
+                    </button>
+                </form>
+
+         
+
+            </div>
+
+        @endif
+
         <br><br>
         {{-- Add comment --}}
         <div  class="add__comment__document">
@@ -48,6 +84,7 @@
                 <button type="submit" class="btn btn-primary w-100 mt-3">Add</button>
             </form>
         </div>
+        
         <br><br>
         {{-- Iterate comments --}}
         @foreach($comments as $comment)
@@ -73,6 +110,7 @@
         {{-- Total comments --}}
 
         <small>Total comments: {{count($comments)}}</small>
+        <script src="{!! url('assets/js/docView_range.js') !!}"></script>
         @endauth
 
         @guest

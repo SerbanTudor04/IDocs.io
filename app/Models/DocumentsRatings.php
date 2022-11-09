@@ -10,12 +10,13 @@ class DocumentsRatings extends Model
     use HasFactory;
     
     protected $fillable = [
-        'name',
-        'content',
         'rating',
         'created_by',
         'updated_by',
         'document_id',
+        'user_id',
+        'id',
+
     ];
 
     /**
@@ -23,7 +24,6 @@ class DocumentsRatings extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'id',
 
     ];
 

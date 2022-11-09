@@ -41,5 +41,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/doc/add_comment', 'DocumentsController@add_comment')->name('documents.add_comment');
         Route::get('/doc/add_comment', 'DocumentsController@add_comment')->name('documents.add_comment');
 
+        Route::prefix('ratings')->group(function() {
+            Route::post('/add', 'RatingsController@add2doc')->name('ratings.add2doc');
+
+        });
+
     });
 });

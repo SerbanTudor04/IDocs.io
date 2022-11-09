@@ -27,4 +27,11 @@ class UtilsController extends Controller
 		$links=DB::table('apps_links')->where('app_id',1)->get();
 		return $links->toArray();
 	}
+
+	public static function checkIfUserHasDoneRating($document_id){
+        $user_id=auth()->user()->id;
+        $doc=DB::table('apps_documents_ratings')->where('document_id','=',$document_id)->where('user_id','=',$user_id)->first();
+		if(!$doc)return false;
+		return true;
+    }
 }
