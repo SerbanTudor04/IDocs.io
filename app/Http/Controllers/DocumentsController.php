@@ -32,9 +32,9 @@ class DocumentsController extends Controller
         );
 
 
-        Artisan::call('index:documents');
-
         $doc_id=$document->id;
+        Artisan::call('index:documents --id='.$doc_id);
+
 
         return redirect('/doc/view/'.$doc_id)->with('success', "Account successfully registered.");
         

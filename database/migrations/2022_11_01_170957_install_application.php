@@ -107,7 +107,7 @@ return new class extends Migration
         Schema::create('apps_documents_ratings_aggregated',function(Blueprint $table){
             $table->uuid('id')->primary();
             $table->longText('content')->nullable()->default('text');
-            $table->integer('rating')->nullable()->default(5);
+            $table->decimal('rating')->nullable()->default(5);
             $table->uuid('created_by')->nullable();
             $table->uuid('updated_by')->nullable();
             $table->uuid('document_id');

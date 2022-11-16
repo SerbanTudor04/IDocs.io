@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Models\Documents;
+use Illuminate\Support\Facades\DB;
 
 use Elasticsearch;
 class IndexDocuments extends Command
@@ -13,7 +13,7 @@ class IndexDocuments extends Command
      *
      * @var string
      */
-    protected $signature = 'index:documents';
+    protected $signature = 'index:documents {--id=}';
 
     /**
      * The console command description.
@@ -29,10 +29,13 @@ class IndexDocuments extends Command
      */
     public function handle()
     {
-        $docs = Documents::all(['id','name','content','short_description']);
-        echo 'Documents obtained.';
+        $doc_id=$this->option('id');
 
-
+        if($doc_id!=""){
+            $docs=DB::select("select i.id,i.name,i.content,i.short_description, (select k.rating from apps_documents_ratings_aggregated k where k.document_id=i.id  ) rating from apps_documents i where i.id=?",[  $doc_id]);   
+        }else{
+            $docs=DB::select("select i.id,i.name,i.content,i.short_description, (select k.rating from apps_documents_ratings_aggregated k where k.document_id=i.id  ) rating from apps_documents i ");   
+        }
         
         foreach($docs as $doc){
             
@@ -40,7 +43,8 @@ class IndexDocuments extends Command
                 'body'=>[
                     'name'=>$doc->name,
                     'content'=>$doc->content,
-                    'short_description'=>$doc->short_description
+                    'short_description'=>$doc->short_description,
+                    'rating'=>floatval($doc->rating),
                 ],
                 'index'=>"i_documents",
                 'type'=>'keyword',

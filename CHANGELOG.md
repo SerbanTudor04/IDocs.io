@@ -78,3 +78,9 @@
 
 # 0.5.0
 - Added top rated documents functionality
+
+# 0.5.1
+- Fixed bug on rating column in aggregation table from integer to decimal.
+- Fixed bug on rating on indexing column in search db.
+- Added support for indexing column rating.
+- Sort documentations by score of search and rating of the document.

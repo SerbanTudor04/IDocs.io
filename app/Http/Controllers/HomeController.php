@@ -15,11 +15,6 @@ class HomeController extends Controller
 
         $docs =DB::select(DB::raw("select * from apps_documents where id in (select i.document_id from apps_documents_ratings_aggregated i limit 5)"));
 
-
-
-
-
-
         return view('home.index',['docs'=>$docs]);
     }
     public function results(Request $request){
@@ -33,6 +28,14 @@ class HomeController extends Controller
             $q=Elasticsearch::search([
                 'index' => 'i_documents',
                 'body'  => [
+                    'sort' =>[
+                        "_score" =>[
+                            "order"=>"desc"
+                        ],
+                        "rating"=>[
+                            "order"=>"desc"
+                        ]
+                        ],
                     'query' => [
                         'multi_match' => [
                             'query' => $query,
@@ -42,7 +45,8 @@ class HomeController extends Controller
                                 'short_description'
                             ]
                         ]
-                    ]
+                    ],
+                    
                 ]
         ]);
             $response=$q['hits']['hits'];
