@@ -75,3 +75,6 @@
 
 # 0.4.0
 - Added rating functionality to a documentation
+
+# 0.5.0
+- Added top rated documents functionality

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Elasticsearch;
 use Exception;
@@ -10,7 +11,16 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        return view('home.index',['q'=>'']);
+        // $docs =DB::table('apps_documents_ratings_aggregated')->take(5)->get();
+
+        $docs =DB::select(DB::raw("select * from apps_documents where id in (select i.document_id from apps_documents_ratings_aggregated i limit 5)"));
+
+
+
+
+
+
+        return view('home.index',['docs'=>$docs]);
     }
     public function results(Request $request){
         $query = $request->input('q');

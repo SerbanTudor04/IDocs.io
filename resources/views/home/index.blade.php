@@ -19,6 +19,11 @@
         <div class="card ">
           <div class="card-body">
             <h1 class="card-title">Top rated docs</h1>
+            <ol>
+              @foreach($docs as $doc)
+                <li><a class="text-dark text-decoration-none" href="/doc/view/{{$doc->id}}">{{$doc->name}}</a></li>
+              @endforeach
+            </ol>
           </div>
         </div>
         @endauth

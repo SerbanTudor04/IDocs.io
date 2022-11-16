@@ -31,7 +31,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->binary('image')->nullable();
-            $table->integer('app_id');
+            $table->integer('app_id')->default(1);
             $table->foreign('app_id')->references('id')->on('apps')->onDelete('cascade');
             $table->boolean('is_staff')->default(false);
         });

@@ -42,7 +42,7 @@
         {{-- Ratings --}}
 
         @if(!$provider::checkIfUserHasDoneRating($doc->id))
-            <div>
+            <div class="container">
                 <small class="text-secondary">
                     You don't rated this document yet.
                 </small><br>
