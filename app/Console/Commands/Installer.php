@@ -42,6 +42,7 @@ class Installer extends Command
         $this->createDatabase();
         $this->migrate();
         $this->seed();
+        $this->setupElasticSearchDB();
         $this->setUpKey();
     }
  
@@ -114,16 +115,15 @@ class Installer extends Command
     /**
      * Updates the environment file with the given database settings.
      *
-     * @param  string  $settings
      * @return void
      */
-    private function updateEnvironmentFile($settings)
+    private function updateEnvironmentFile($settings,$prefix="DB_")
     {
         $env_path = base_path('.env');
         DB::purge(DB::getDefaultConnection());
  
         foreach($settings as $key => $value){
-            $key = 'DB_' . strtoupper($key);
+            $key = $prefix . strtoupper($key);
             $line = $value ? ($key . '=' . $value) : $key;
             putenv($line);
             file_put_contents($env_path, preg_replace(
@@ -168,5 +168,24 @@ class Installer extends Command
         $this->info("\nLogin to http://localhost:8000/admin using:!");
         $this->info("\n\t Username: admin!");
         $this->info("\n\t Password: admin!");
+    }
+
+
+    private function setupElasticSearchDB(){
+        setupElasticSearchDB:
+
+        $host = $this->ask('Database host [localhost]', 'localhost');
+        $port = $this->ask('Database port [9200]', '9200');
+        $scheme = $this->ask('Database scheme [http]', 'http');
+        $username = $this->ask('Database username');
+        $password = $this->secret('Database password');
+
+        if (strlen($username)==0 || strlen($password)==0){
+            goto setupElasticSearchDB;
+        }
+        $settings = compact('host', 'port', 'scheme', 'username', 'password');
+        $this->updateEnvironmentFile($settings,"ELASTICSEARCH_");
+ 
+
     }
 }
