@@ -43,10 +43,11 @@ class HomeController extends Controller
                                 'name',
                                 'content',
                                 'short_description'
-                            ]
-                        ]
+                            
+                            ],
+
+                        ],
                     ],
-                    
                 ]
         ]);
             $response=$q['hits']['hits'];

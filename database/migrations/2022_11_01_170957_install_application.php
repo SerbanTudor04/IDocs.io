@@ -58,10 +58,10 @@ return new class extends Migration
             $table->string('name');
             $table->longText('content')->nullable()->default('text');
             $table->uuid('created_by')->nullable();
-            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->dateTime('created_at')->nullable()->default(Carbon::now()->toDateTimeString());
             $table->uuid('updated_by')->nullable();
-            $table->foreign('updated_by')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('updated_by')->references('id')->on('users');
             $table->dateTime('updated_at')->nullable()->default(Carbon::now()->toDateTimeString());
             $table->string('short_description');
         });
@@ -85,7 +85,7 @@ return new class extends Migration
             $table->longText('content')->nullable()->default('text');
             $table->string('mime_type')->nullable();
             $table->string('file_name')->nullable();
-            $table->integer('file_zile')->nullable();
+            $table->integer('file_size')->nullable();
             $table->uuid('created_by')->nullable();
             $table->uuid('updated_by')->nullable();
             $table->uuid('document_id');

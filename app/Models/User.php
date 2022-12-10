@@ -26,6 +26,7 @@ class User extends Authenticatable
         'email',
         'password',
         'app_id',
+        "is_staff"
     ];
 
     /**

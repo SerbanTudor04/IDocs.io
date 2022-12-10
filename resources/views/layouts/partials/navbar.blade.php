@@ -16,7 +16,6 @@
         </ul>
         @guest
           <a href="{{route('login.show')}}" target="" rel="noopener noreferrer" class="btn btn-dark">Login <i class="fa fa-arrow-right-to-bracket"></i></a>  
-          <a href="{{route('register.show')}}" target="" rel="noopener noreferrer" class="btn btn-dark">Register <i class="fa-light fa-plus-large"></i></a>  
         @endguest
 
         @auth

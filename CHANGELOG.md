@@ -84,3 +84,22 @@
 - Fixed bug on rating on indexing column in search db.
 - Added support for indexing column rating.
 - Sort documentations by score of search and rating of the document.
+
+# 0.6.0
+- Add new midlleware for checking if a user is staff
+- Added a new controller for admin APIs
+- Added Admin Panel  with dashboard,users,and documentations management
+- Added first steps in users permissions management
+- Added Admin users management controller
+- Added models for new tables 
+- Added database tables schema as pdf in database dir
+- Added jquery library support
+- Added tailwind.css library support
+- Added paginate.js library support
+- Added chart.js library support
+- Added admin panel view
+- Added admin panel users crud
+- Added admin panel documentations view and disable feature
+- Remove user register controller
+- Remove user register view
+- Fix tables columns typos and other related properties

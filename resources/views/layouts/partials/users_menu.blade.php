@@ -6,4 +6,7 @@
 </button>
 <ul class="dropdown-menu" aria-labelledby="items_menu">
     <li><a class="dropdown-item" href="{{route('logout.perform')}}">Log out</a></li>
+    {{-- admin zone --}}
+    <li><a class="dropdown-item"  href="/admin/">Admin Panel <i class="fa fa-screwdriver-wrench"></i></a></li>
+    
 </ul>
